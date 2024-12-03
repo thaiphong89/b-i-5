@@ -1,0 +1,55 @@
+﻿@model IEnumerable<BookCRUD.Models.Book>
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Danh Sách Sách</h2>
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <p class="lead">Tổng số sách: @Model.Count()</p>
+        <a href="/Book/Create" class="btn btn-primary">
+            <i class="bi bi-plus-circle"></i> Thêm Sách Mới
+        </a>
+    </div>
+
+    <table class="table table-striped table-bordered align-middle">
+        <thead class="table-dark text-center">
+            <tr>
+                <th>#</th>
+                <th>Tựa Sách</th>
+                <th>Tác Giả</th>
+                <th>Mô Tả</th>
+                <th>Hình Ảnh</th>
+                <th>Giá (VNĐ)</th>
+                <th>Hành Động</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var book in Model)
+            {
+                <tr>
+                    <td class="text-center">@book.Id</td>
+                    <td>@book.Title</td>
+                    <td>@book.Author</td>
+                    <td>@book.Description</td>
+                    <td class="text-center">
+                        <img src="@book.Image" alt="@book.Title" class="img-thumbnail" style="max-width: 100px;" />
+                    </td>
+                    <td class="text-end">@string.Format("{0:N0}", book.Price)</td>
+                    <td class="text-center">
+                        <a href="/Book/Edit/@book.Id" class="btn btn-warning btn-sm me-1">
+                            <i class="bi bi-pencil-square"></i> Sửa
+                        </a>
+                        <a href="/Book/Delete/@book.Id" class="btn btn-danger btn-sm">
+                            <i class="bi bi-trash"></i> Xóa
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    @if (!Model.Any())
+    {
+        <div class="alert alert-info text-center mt-3">
+            <i class="bi bi-info-circle"></i> Hiện chưa có sách nào trong danh sách.
+        </div>
+    }
+</div>

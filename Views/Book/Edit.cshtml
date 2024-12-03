@@ -1,0 +1,48 @@
+﻿@model BookCRUD.Models.Book
+
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Chỉnh Sửa Sách</h1>
+    <form asp-action="Edit" method="post" class="needs-validation" novalidate>
+        <input type="hidden" asp-for="Id" />
+
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label asp-for="Title" class="form-label">Tựa sách</label>
+                <input asp-for="Title" class="form-control" placeholder="Nhập tựa sách" required />
+                <div class="invalid-feedback">Vui lòng nhập tựa sách.</div>
+            </div>
+            <div class="col-md-6">
+                <label asp-for="Author" class="form-label">Tác giả</label>
+                <input asp-for="Author" class="form-control" placeholder="Nhập tên tác giả" required />
+                <div class="invalid-feedback">Vui lòng nhập tên tác giả.</div>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Description" class="form-label">Mô tả</label>
+            <textarea asp-for="Description" class="form-control" rows="4" placeholder="Nhập mô tả về sách..." required></textarea>
+            <div class="invalid-feedback">Vui lòng nhập mô tả.</div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label asp-for="Price" class="form-label">Giá</label>
+                <input asp-for="Price" class="form-control" type="number" step="0.01" placeholder="Nhập giá sách" required />
+                <div class="invalid-feedback">Vui lòng nhập giá sách hợp lệ.</div>
+            </div>
+            <div class="col-md-6">
+                <label asp-for="Image" class="form-label">Hình ảnh (URL)</label>
+                <input asp-for="Image" class="form-control" placeholder="Nhập đường dẫn hình ảnh" />
+            </div>
+        </div>
+
+        <div class="text-center">
+            <button type="submit" class="btn btn-success me-2">
+                <i class="bi bi-save"></i> Lưu
+            </button>
+            <a asp-action="Index" class="btn btn-secondary">
+                <i class="bi bi-arrow-left"></i> Hủy
+            </a>
+        </div>
+    </form>
+</div>

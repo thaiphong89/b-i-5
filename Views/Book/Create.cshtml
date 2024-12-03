@@ -1,0 +1,45 @@
+﻿@model BookCRUD.Models.Book
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Thêm Sách Mới</h2>
+    <form asp-action="Create" method="post" class="needs-validation" novalidate>
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="Title" class="form-label">Tựa sách</label>
+                <input type="text" class="form-control" id="Title" name="Title" placeholder="Nhập tựa sách" required />
+                <div class="invalid-feedback">Vui lòng nhập tựa sách.</div>
+            </div>
+            <div class="col-md-6">
+                <label for="Author" class="form-label">Tác giả</label>
+                <input type="text" class="form-control" id="Author" name="Author" placeholder="Nhập tên tác giả" required />
+                <div class="invalid-feedback">Vui lòng nhập tên tác giả.</div>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="Description" class="form-label">Mô tả</label>
+            <textarea class="form-control" id="Description" name="Description" rows="4" placeholder="Mô tả về sách..."></textarea>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="Image" class="form-label">Hình ảnh (URL)</label>
+                <input type="text" class="form-control" id="Image" name="Image" placeholder="Nhập đường dẫn hình ảnh" />
+            </div>
+            <div class="col-md-6">
+                <label for="Price" class="form-label">Giá</label>
+                <input type="number" class="form-control" id="Price" name="Price" step="0.01" placeholder="Nhập giá sách" required />
+                <div class="invalid-feedback">Vui lòng nhập giá sách.</div>
+            </div>
+        </div>
+
+        <div class="text-center">
+            <button type="submit" class="btn btn-success">
+                <i class="bi bi-save"></i> Lưu
+            </button>
+            <a href="/Book" class="btn btn-secondary">
+                <i class="bi bi-arrow-left"></i> Quay lại
+            </a>
+        </div>
+    </form>
+</div>
